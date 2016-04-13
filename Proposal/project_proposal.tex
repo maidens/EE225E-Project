@@ -17,7 +17,7 @@
 % \usepackage{subfig}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{fullpage}       
+% \usepackage{fullpage}       
 
                              
   
@@ -44,13 +44,20 @@
 \newtheorem{lem}{Lemma}
 
 
+	\addtolength{\oddsidemargin}{-1in}
+	\addtolength{\evensidemargin}{-1in}
+	\addtolength{\textwidth}{2in}
+
+	\addtolength{\topmargin}{-1.25in}
+	\addtolength{\textheight}{1.75in}
+
 \begin{document}
 
 \title{EE225E Project Proposal: \\
 Metabolism mapping with prior information 
 }
 \author{John Maidens and Kamin Kahrizi}
-\date{April 14, 2016} 
+\date{April 13, 2016} 
 
 \maketitle
 
@@ -61,7 +68,7 @@ Metabolism mapping with prior information
 Hyperpolarized carbon-13 magnetic resonance imaging (MRI) has enabled the real-time observation of perfusion and metabolism in preclinical and clinical studies. %\cite{Golman06, Day07, Kazan13, Nelson13, Bahrami14, Swisher14}
 This technology is made possible by techniques for dynamic nuclear polarization (DNP) that have led to signal-to-noise ratio (SNR) increases of four to five orders of magnitude compared with endogenous signal in dissolved $^{13}$C-labelled molecules  \cite{Ardenkjaer-Larsen03, Golman03}.  Injected [1-$^{13}$C] pyruvate is frequently used as a substrate in metabolism experiments and its rate of conversion to  [1-$^{13}$C] lactate has been shown to distinguish between healthy and diseased tissues in animal \cite{Day07}, and recently human \cite{Nelson13}, studies. 
 
-In contrast with conventional MRI, hyperpolarized experiments are inherently dynamic as images must be acquired as the injected substrate spreads through the body and is metabolized. This necessitates dynamical system modelling and estimation for quantifying metabolic reaction rates. 
+% In contrast with conventional MRI, hyperpolarized experiments are inherently dynamic as images must be acquired as the injected substrate spreads through the body and is metabolized. This necessitates dynamical system modelling and estimation for quantifying metabolic reaction rates. 
 
 %\subsection{Mathematical model} 
 %
@@ -125,7 +132,7 @@ Even with dynamic nuclear polarization, carbon-13 MRI suffers from low SNR relat
 
 In Figure \ref{fig:effect_of_resolution} we show the effect of increased resolution on the quality of parameter maps computed by an independent maximum-likelihood fit to each voxel. We generate data from the model given in equation (2) of \cite{Maidens16}, assuming that SNR of the trajectories of the model is proportional to voxel volume. We see that when voxels are treated independently (\emph{i.e} no spatial structure is assumed in the parameter maps) increased resolution can be detrimental to parameter map quality. 
 
-\begin{figure}[ht!] 
+\begin{figure} 
     \centering
     \begin{subfigure}[b]{0.25\textwidth}
         \includegraphics[width=\textwidth]{figs/kPL_32.png}
@@ -216,6 +223,7 @@ where $\ell(\theta_i | y_i)$ denotes the log likelihood function corresponding t
 \item Explore whether similar things have been done before (\emph{e.g.} in dynamic contrast enhanced MRI). 
 \item Implement a Douglas-Rachford iteration to try to solve \eqref{eq:opt} and investigate convergence properties (since the negative log likelihood in this case in non-convex). 
 \item Investigate applying to more realistic simulated data sets (\emph{e.g.} subsampled k-space). 
+\item Write a 10 page report summarizing results. 
 \end{itemize} 
 
 \bibliographystyle{IEEEtran}
